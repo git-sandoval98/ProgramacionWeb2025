@@ -1,0 +1,21 @@
+h1{
+color: red;
+
+}
+#padre{
+width: 100vw;
+height: 100vh;
+background-color: yellow;
+display: flex;
+justify-content: center;
+
+gap: 20px;
+flex-wrap: wrap;
+align-content: center;
+}
+.hijo{
+width: 400px;
+height: 400px;
+background-color: red;
+border-radius: 50%;
+}
