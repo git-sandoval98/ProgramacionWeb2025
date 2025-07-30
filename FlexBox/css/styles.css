@@ -3,19 +3,43 @@ color: red;
 
 }
 #padre{
-width: 100vw;
-height: 100vh;
-background-color: yellow;
-display: flex;
-justify-content: center;
-
-gap: 20px;
-flex-wrap: wrap;
-align-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: dodgerblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: start;
+    gap: 20px;
 }
-.hijo{
+/* .hijo{
 width: 400px;
 height: 400px;
 background-color: red;
 border-radius: 50%;
+} */
+
+
+.cuadrado{
+    width: 20vw;
+    height: 20vw;
+    max-width: 150px;
+    max-height: 150px;
+    background-color: coral;
+}
+.circulo{
+    width: 25vw;
+    height: 25vw;
+    max-width: 300px;
+    max-height: 300px;
+    background-color: yellow;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cuadradopequeno{
+    width: 25%;
+    height: 25%;
+    background-color: coral;
 }
