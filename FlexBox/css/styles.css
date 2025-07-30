@@ -7,10 +7,10 @@ color: red;
     height: 100vh;
     background-color: dodgerblue;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    align-content: start;
-    gap: 20px;
+    align-items: center;
+    gap: 30px;
 }
 /* .hijo{
 width: 400px;
@@ -42,4 +42,11 @@ border-radius: 50%;
     width: 25%;
     height: 25%;
     background-color: coral;
+}
+.fila {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
