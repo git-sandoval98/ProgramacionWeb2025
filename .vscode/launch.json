@@ -9,10 +9,10 @@
             "type": "msedge",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\User\\Documents\\ProgramacionWeb2025\\FlexBox\\index.html"
+            "file": "c:\\Users\\User\\Documents\\ProgramacionWeb2025\\Position\\index.html"
         },
         {
-            "type": "pwa-msedge",
+            "type": "msedge",
             "name": "Launch Microsoft Edge",
             "request": "launch",
             "runtimeArgs": [
@@ -24,7 +24,7 @@
             }
         },
         {
-            "type": "pwa-msedge",
+            "type": "msedge",
             "name": "Launch Microsoft Edge in headless mode",
             "request": "launch",
             "runtimeArgs": [
