@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #container {
   display: flex;
   flex-direction: column;
@@ -11,10 +17,15 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 5px;
+  /* width: 100%;
+  min-height: 100vh;  */
+}
 
-   width: 100%;
-    min-height: 100vh; 
-    
+#containerA > div,
+#containerB > div,
+#containerC > div,
+#containerD > div {
+  aspect-ratio: 1 / 1;
 }
 
 .headerA {
@@ -48,32 +59,49 @@
 /* Tablet */
 @media (min-width: 768px) {
   #containerA {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       "headerA headerA"
       "section1 article2"
       "aside3 footer4";
   }
 
-  .headerA { grid-area: headerA; }
-  .section1 { grid-area: section1; }
-  .article2 { grid-area: article2; }
-  .aside3 { grid-area: aside3; }
-  .footer4 { grid-area: footer4; }
+  .headerA { 
+    grid-area: headerA; 
+    min-height: var(--altura-delD, 200px);
+  }
+  .section1 { 
+    grid-area: section1; 
+  }
+
+  .article2 { 
+    grid-area: article2; 
+  }
+  .aside3 { 
+    grid-area: aside3; 
+  }
+  .footer4 { 
+    grid-area: footer4; 
+  }
 
   #containerB {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "areaB areaB";
+    grid-template-areas: "areaB areaB";
   }
-  .areaB { grid-area: areaB; }
+  .areaB { 
+    grid-area: areaB; 
+    min-height: var(--altura-delD, 200px);
+  }
 
   #containerC {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "citeC citeC";
+    grid-template-areas: "citeC citeC";
   }
-  .citeC { grid-area: citeC; }
+  .citeC { 
+    grid-area: citeC; 
+    min-height: var(--altura-delD, 200px); 
+  }
 
   #containerD {
     grid-template-columns: 1fr 1fr;
@@ -81,23 +109,46 @@
       "delD delD"
       "olD olD";
   }
-  .delD { grid-area: delD; }
+  .delD { 
+    grid-area: delD; 
+    --altura-delD: 200px; 
+  }
   .olD { grid-area: olD; }
 }
 
 /* Escritorio */
 @media (min-width: 1024px) {
   #containerA {
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "headerA headerA headerA"
-      "section1 article2 aside3"
-      "footer4 footer4 footer4";
+  grid-template-columns: repeat(4, 1fr);
+ grid-template-rows: auto auto;
+  grid-template-areas:
+    "headerA headerA headerA headerA"
+    "section1 article2 aside3 footer4";
+}
+
+  .headerA { 
+    grid-area: headerA; 
+  }
+
+  .section1 { 
+    grid-area: section1; 
+  }
+
+  .article2 { 
+    grid-area: article2; 
+  }
+
+  .aside3 { 
+    grid-area: aside3; 
+  }
+
+  .footer4 { 
+    grid-area: footer4; 
   }
 
   #containerB {
     grid-template-columns: repeat(4, 1fr);
+
     grid-template-areas: "areaB areaB areaB areaB";
   }
 
@@ -106,8 +157,18 @@
   }
 
   #containerD {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "delD olD";
+      "delD delD delD delD"
+      "olD olD olD olD";
+  }
+
+  .delD { 
+    grid-area: delD; 
+    }
+
+  .olD { 
+    grid-area: olD; 
   }
 }
+
