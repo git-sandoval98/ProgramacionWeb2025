@@ -1,183 +1,226 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-img {
-  display: block;
-  margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#container {
-  display: flex;
-  flex-direction: column;
-
-  gap: 10px;
+body{
+    font-size: 30px;
 }
 
-#containerA,
-#containerB,
-#containerC,
-#containerD {
-  display: grid;
-  grid-template-columns: 1fr;
-  /* grid-template-rows: auto;  */
-  gap: 5px;
-  /* width: 100%;
-  min-height: 100vh;  */
+#promo {
+    display: none;
 }
 
-#containerA > div,
-#containerB > div,
-#containerC > div,
-#containerD > div {
-  aspect-ratio: 1 / 1;
+nav {
+    display: none;
 }
 
-.headerA {
-  background: brown;
-}
-.section1 {
-  background: orange;
-}
-.article2 {
-  background: fuchsia;
-}
-.aside3 {
-  background: green;
-}
-.footer4 {
-  background: yellow;
-}
-.areaB {
-  background: red;
-}
-.citeC {
-  background: rosybrown;
-}
-.delD {
-  background: lightgreen;
-}
-.olD {
-  background: lightcoral;
+
+header {
+    height: 20vh;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-/* media para la tablet */
-@media (min-width: 768px) {
-  #containerA {
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "headerA headerA"
-      "section1 article2"
-      "aside3 footer4";
-  }
-
-  .headerA { 
-    grid-area: headerA; 
-    min-height: var(--altura-delD, 200px);
-  }
-  .section1 { 
-    grid-area: section1; 
-  }
-
-  .article2 { 
-    grid-area: article2; 
-  }
-  .aside3 { 
-    grid-area: aside3; 
-  }
-  .footer4 { 
-    grid-area: footer4; 
-  }
-
-  #containerB {
-    grid-template-columns: 1fr 1fr;
-  
-    grid-template-areas: "areaB areaB";
-  }
-  .areaB { 
-    grid-area: areaB; 
-    min-height: var(--altura-delD, 200px);
-  }
-
-  #containerC {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "citeC citeC";
-  }
-  .citeC { 
-    grid-area: citeC; 
-    min-height: var(--altura-delD, 200px); 
-  }
-
-  #containerD {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "delD delD"
-      "olD olD";
-  }
-  .delD { 
-    grid-area: delD; 
-    --altura-delD: 200px; 
-  }
-  .olD { 
-    grid-area: olD; 
-  }
+#title-business {
+    display: flex;
+    align-items: center;
 }
 
-/* media para el modo escritorio */
-@media (min-width: 1024px) {
-  #containerA {
-  grid-template-columns: repeat(4, 1fr);
- grid-template-rows: auto auto;
-  grid-template-areas:
-    "headerA headerA headerA headerA"
-    "section1 article2 aside3 footer4";
+h1 {
+    font-size: 3rem;
+    margin-left: 30px;
 }
 
-  .headerA { 
-    grid-area: headerA; 
-  }
+#sectionA {
+    height: 100vh;
+}
 
-  .section1 { 
-    grid-area: section1; 
-  }
+#sectionA {
+    height: 100vh;
+    background-color: rgb(164, 215, 215);
+}
 
-  .article2 { 
-    grid-area: article2; 
-  }
+.box-number {
+    height: 50vh;
+    border: solid 1px black;
+}
 
-  .aside3 { 
-    grid-area: aside3; 
-  }
-
-  .footer4 { 
-    grid-area: footer4; 
-  }
-
-  #containerB {
-    grid-template-columns: repeat(4, 1fr);
-
-    grid-template-areas: "areaB areaB areaB areaB";
-  }
-
-  #containerC {
+.box-news {
+    height: 100vh;
+    border: solid 1px black;
+    background-color: #ccc;
+    display: grid;
     grid-template-columns: 1fr;
-  }
-
-  #containerD {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr 1.5fr 2fr;
     grid-template-areas:
-      "delD delD delD delD"
-      "olD olD olD olD";
-  }
+        "title"
+        "content"
+        "image"
+    ;
+    padding: 20px;
 
-  .delD { 
-    grid-area: delD; 
+    p {
+        background-color: red;
+        height: 80%;
+        overflow: hidden;
     }
 
-  .olD { 
-    grid-area: olD; 
-  }
+    #news-button {
+        margin-top: 20px;
+        background-color: blue;
+    }
 }
 
+#news-title {
+    grid-area: title;
+    /* font-size: 3rem; */
+}
+
+#news-content {
+    grid-area: content;
+    /* font-size: 1.5rem; */
+    overflow: auto;
+}
+
+#news-image {
+    grid-area: image;
+    background-color: cadetblue;
+    width: 100%;
+
+}
+
+footer {
+    height: 100vh;
+}
+
+#contact {
+    height: 90%;
+    background-color: rgb(159, 221, 200);
+}
+
+#about-me {
+    height: 10%;
+    background-color: #ccc;
+}
+
+@media (min-width: 479px) and (max-width: 1023px) {
+    #sectionA {
+        height: 50vh;
+    }
+
+    #section-numbers {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box-number {
+        width: 50%;
+        height: 35vh;
+    }
+
+    .box-news {
+        height: 50vh;
+        grid-template-columns: 0.7fr 0.3fr;
+        grid-template-rows: 1fr 1fr 2fr;
+        grid-template-areas:
+            "title title"
+            "content none"
+            "content image"
+        ;
+        gap: 20px;
+    }
+
+    footer {
+        height: 50vh;
+    }
+}
+
+@media (min-width: 1023px) {
+    #promo {
+        background-color: antiquewhite;
+        height: 5vh;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        ul {
+            margin-right: 10%;
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        ul {
+            margin-right: 10%;
+            list-style: none;
+            display: flex;
+            gap: 20px;
+
+            a {
+                text-decoration: none;
+                color: black;
+                padding: 5px 10px;
+            }
+        }
+    }
+
+    header {
+        height: 20vh;
+    }
+
+    #icon-menu {
+        display: none;
+    }
+
+    #sectionA {
+        height: 70vh;
+    }
+
+    #section-numbers {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100vw;
+    }
+
+    .box-number {
+        width: 25%;
+        height: 40vh;
+    }
+
+    .box-news {
+        height: 60vh;
+        grid-template-columns: 4fr 1fr 2fr;
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:
+            "title title none"
+            "content empty image"
+        ;
+        gap: 20px;
+    }
+
+    #contact {
+        height: 40vh;
+    }
+
+    #about-me {
+        height: 10vh;
+    }
+
+    footer {
+        height: 50vh;
+    }
+
+    #news-image {
+        height: 50%;
+    }
+}
