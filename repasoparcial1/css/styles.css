@@ -1,0 +1,152 @@
+/* ===== Reset y base ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow-x: hidden; }   /* evita scroll horizontal */
+body{
+  min-height: 100vh;                 /* toda la pantalla */
+  display: flex;
+  flex-direction: column;            /* apilar vertical */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ===== Ancho completo para TODOS los bloques ===== */
+.hdr, .bar-red, .panel-yellow, .bar-blue, .bar-pink { width: 100vw; }
+
+/* ===== Alturas que suman 100vh (4 pequeños + 1 grande) =====
+   4 * 16vh + 36vh = 100vh */
+.hdr, .bar-red, .bar-blue, .bar-pink { height: 16vh; }
+
+/* ===== 1) Bloque VERDE (header) con caja 20x20 centrada ===== */
+.hdr{
+  background: #2e7d32;              /* verde */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Definición general del cuadrito 20x20 (borde rojo) */
+.box-20{
+  width: 20px;
+  height: 20px;
+  background: #ffeb3b;              /* amarillo */
+  border: 2px solid #d50000;        /* rojo */
+  border-radius: 0;                  /* esquinas cuadradas */
+}
+
+/* Visibilidad por defecto (MOBILE):
+   - Oculta TODOS los .box-20...
+   - ...excepto el del header, que SÍ debe verse. */
+.box-20{ display: none; }
+.hdr .box-20{ 
+    /* display: block;  */
+    display: none;
+}
+
+/* ===== 2) Bloque ROJO ===== */
+.bar-red{ background: #e53935; }     /* rojo */
+
+/* ===== 3) Bloque AMARILLO (más grande, con contenido interno) ===== */
+.panel-yellow{
+  height: 36vh;                      /* bloque grande */
+  background: #ffeb3b;               /* relleno amarillo */
+  border: 0;                         /* sin marco oscuro */
+  border-radius: 0;                  /* esquinas cuadradas */
+  background-clip: padding-box;
+  padding: 10px;
+
+  display: grid;                     /* dos filas verdes del mismo alto */
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Verdes internos (cada uno contiene 2 grises apilados) */
+.panel-yellow .row{
+  background: #43a047;               /* verde */
+  border: 0;                         /* sin borde verde oscuro */
+  border-radius: 0;
+  padding: 8px;
+
+  display: grid;                     /* 2 grises uno arriba y otro abajo */
+  grid-template-columns: 1fr;        /* 1 columna */
+  grid-template-rows: 1fr 1fr;       /* 2 filas iguales */
+  gap: 8px;
+}
+
+/* Grises internos */
+.panel-yellow .row .cell{
+  background: #9e9e9e;               /* gris */
+  border-radius: 0;
+  /* Nota: no forzamos aspecto 1:1 para que todo quepa en 36vh sin desbordar */
+}
+
+/* ===== 4) Bloque AZUL ===== */
+.bar-blue{ background: #3b82f6; }    /* azul */
+
+/* ===== 5) Bloque PÚRPURA ===== */
+.bar-pink{ background: #d47ad3; }    /* púrpura/rosa */
+
+/* ===== Desktop / ≥769px ===== */
+@media (min-width: 769px){
+  /* El layout completo lo maneja Grid */
+  html, body { height: 100%; overflow-x: hidden; }
+  body{
+    margin: 0;
+    display: grid;
+    grid-template-columns: 25% 75%;      /* 2 columnas para la fila central (azul | amarillo) */
+    grid-template-rows: 16vh 16vh 52vh 16vh;
+    grid-template-areas:
+      "hdr  hdr"
+      "red  red"
+      "blue yellow"
+      "pink pink";
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Mapea cada bloque a su área */
+  .hdr         { grid-area: hdr; }
+  .bar-red     { grid-area: red; }
+  .bar-blue    { grid-area: blue; }
+  .panel-yellow{ grid-area: yellow; }
+  .bar-pink    { grid-area: pink; }
+
+  .hdr .box-20{
+    display: block;
+  }
+
+  /* Haz que cada bloque llene su celda completamente */
+  .hdr, .bar-red, .bar-blue, .panel-yellow, .bar-pink{
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Mantén el panel amarillo como contenedor de 2 verdes */
+  .panel-yellow{
+    display: grid;
+    grid-template-rows: 1fr 1fr;  /* dos verdes iguales */
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+  }
+
+  /* Dentro de cada verde interno, los grises uno encima del otro */
+  .panel-yellow .row{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    position: relative;           /* ancla para el cuadrito si va aquí */
+  }
+
+  /* Desktop: mostrar el .box-20 del PRIMER verde (oculto en mobile) */
+  .panel-yellow .row:first-child .box-20{
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: #ffeb3b;
+    border: 2px solid #d50000;
+    border-radius: 0;
+  }
+}
