@@ -6,4 +6,18 @@
 
 body {
     font-size: 30px;
+    background-color: lightgreen;
 }
+
+.container {
+    background-color: blue;
+
+}
+.col{
+    border: solid 1px black;
+}
+
+.col-7{
+    border: solid 1px black;
+}
+
