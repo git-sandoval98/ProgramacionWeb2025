@@ -1,0 +1,9 @@
+footer{
+    background-color: rgb(255, 119, 0);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1frem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
